@@ -1,0 +1,23 @@
+{% load static %}
+
+<div class="d-flex align-items-center justify-content-between mb-5">
+
+    <div></div>
+    <div>
+        <a href="/"><img src="{% static 'logo.PNG' %}" width="300"></a>
+    </div>
+    <div></div>
+</div>
+
+<div class="d-flex flex-wrap align-items-center justify-content-between mb-5">
+
+    <div></div>
+    <div>
+        <a href="{% url 'about' %}" class="mr-3 ml-3">O nás</a>
+        <a href="/" class="mr-3 ml-3">Kontakt</a>
+        <a href="{% url 'downloads' %}" class="mr-3 ml-3">Ke stažení</a>
+        <a href="{% url 'board' %}" class="mr-3 ml-3">Výbor</a>
+    </div>
+    <div></div>
+
+</div>

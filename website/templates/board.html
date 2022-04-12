@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block mycontent %}
+{% load filters %}
+
+<div class="row ml-0 mr-0 pl-0 pr-0">
+
+    {% for member in board_members %}
+
+            <div class="col-sm-4 pl-0 pr-0">
+                <div class="card m-3">
+                    <img class="card-img-top" src="{{ member.photo.url }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ member.name }}</h5>
+                        <p>{{ member|board_title_filter }}</p>
+                        <p class="card-text">{{ member.medallion }}</p>
+                    </div>
+                </div>
+            </div>
+
+    {% endfor %}
+
+</div>
+
+
+{% endblock %}
+
+
+jazyk prihlasky
+
+Přidat člena
+Jenom členové
+Celoživotní
+Expirované členství
+Karlova Univerzita
+Filozofická fakulta
+Nestudenti
+Nezaplacené
+Končící členové
+Bez přihlášky
+Vyčistit filtry
+Neschvaleni clenove
+
+Upravit
+Prodlouzit clenstvi
+Zaplatit prihlsku
+Schvalit prihlasku
+Zmena na celozivotni
+Smazat
+
+Automaticky smazat clena z db po uplynuti doby ve stanovach po nezaplaceni clenstvi
+automaticky posilat email clenum s infem ze jim vyprsi clenstvi
+automaticky poslat wellcome mail novym clenum po splneni podminek - schvalena a zaplacena prihlaska
+automaticky poslat mail po dvou mesisich od podani prihlasky pri nezaplaceni clenstvi
+kdyz poda prihlasku a nezaplati do 90 dni, zaznam se smaze z clenske db
+poslat automaticky mail tajemnikovi pri vyrazeni/smazani clena z db
+
+pokladnik - pravomoce editovat jenom udaje o zaplaceni a prodlouzeni clenstvi
+
+Log zmen v DB
