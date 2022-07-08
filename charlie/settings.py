@@ -122,6 +122,8 @@ STATIC_URL = 'charlie/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "charlie/static/"),
     os.path.join(BASE_DIR, "charlie/static/board_members/"),
+    os.path.join(BASE_DIR, "charlie/static/events/"),
+    os.path.join(BASE_DIR, "charlie/static/partners/"),
 ]
 
 # Default primary key field type

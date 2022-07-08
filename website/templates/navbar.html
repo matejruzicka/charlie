@@ -1,23 +1,50 @@
 {% load static %}
 
-<div class="d-flex align-items-center justify-content-between mb-5">
-
-    <div></div>
-    <div>
-        <a href="/"><img src="{% static 'logo.PNG' %}" width="300"></a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/">Spolek Charlie</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#about">O nás</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#contact">Kontakt</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#joinus">Přidejte se k nám</a>
+                </li>
+                <!--<li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="#events">Události</a>
+                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'magazine' %}" target="_blank">Časopis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.facebook.com/spolekcharlie" target="_blank">
+                        <i class="fa fa-lg fa-facebook-square"></i>
+                        <span class="d-inline d-lg-none"> Facebook</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.instagram.com/spolek_charlie" target="_blank">
+                        <i class="fa fa-lg fa-instagram"></i>
+                        <span class="d-inline d-lg-none"> Instagram</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div></div>
-</div>
+</nav>
 
-<div class="d-flex flex-wrap align-items-center justify-content-between mb-5">
-
-    <div></div>
-    <div>
-        <a href="{% url 'about' %}" class="mr-3 ml-3">O nás</a>
-        <a href="/" class="mr-3 ml-3">Kontakt</a>
-        <a href="{% url 'downloads' %}" class="mr-3 ml-3">Ke stažení</a>
-        <a href="{% url 'board' %}" class="mr-3 ml-3">Výbor</a>
+<header class="text-white" id="charlie-header">
+    <div class="container text-center">
+        <a href="/"><img src="{% static 'logo.PNG' %}" style="width:400px;"></a>
     </div>
-    <div></div>
+</header>
 
-</div>
+

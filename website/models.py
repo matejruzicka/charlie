@@ -10,6 +10,7 @@ class BoardMember(models.Model):
         ("Prezident", "Prezident"),
         ("Víceprezident", "Víceprezident"),
         ("Tajemník", "Tajemník"),
+        ("Pokladník", "Pokladník"),
         ("Řadový člen", "Řadový člen"),
         ("Člen revizní komise", "Člen revizní komise")
     ]
@@ -25,6 +26,8 @@ class BoardMember(models.Model):
     pronouns = models.CharField(max_length=225, choices=PRONOUNS, blank=False, null=False, verbose_name="Oslovení")
     medallion = models.TextField(blank=True, null=True, verbose_name="Medailon")
     photo = models.ImageField(blank=True, null=True, upload_to="charlie/static/board_members", verbose_name="Fotka")
+    email = models.EmailField(blank=True, null=True, verbose_name="Email")
+    email2 = models.EmailField(blank=True, null=True, verbose_name="Druhý email")
 
     def __str__(self):
         title = board_title_filter(self)

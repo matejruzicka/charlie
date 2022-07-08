@@ -1,59 +1,78 @@
-{% extends "base.html" %}
-{% block mycontent %}
 {% load filters %}
+{% load static %}
 
-<div class="row ml-0 mr-0 pl-0 pr-0">
+<!--Modals-->
+{% for member in board_members %}
+<div class="modal fade" tabindex="-1" role="dialog" id="vyborModal{{ member.id }}" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Seznámte se s výborem Charlie</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <img class="img-cover rounded-lg shadow" src="{% if member.photo %}
+                                         {{ member.photo.url }}
+                                         {% else %}
+                                         {% static 'logo_small.PNG' %}
+                                         {% endif %}
+                                        ">
+                    <h2 class="mt-2">{{ member.name }}</h2>
+                    <span class='badge badge-secondary ml-2'>{{ member|board_title_filter }}</span>
+                </div>
+                <hr class="rainbow">
+                <p class="lead" style="font-size: 1.1rem;">
+                    {{ member.medallion|safe }}
+                </p>
+                <hr class="rainbow">
+                <p class="lead">
+                    <small>Kontakt:</small><br/>
+                    <h5 class='ml-2'><a href='mailto:{{ member.email }}'>{{ member.email|default_if_none:"" }}</a></h5>
+                    <h5 class='ml-2'><a href='mailto:{{ member.email2 }}'>{{ member.email2|default_if_none:"" }}</a></h5>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
 
-    {% for member in board_members %}
-
-            <div class="col-sm-4 pl-0 pr-0">
-                <div class="card m-3">
-                    <img class="card-img-top" src="{{ member.photo.url }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ member.name }}</h5>
-                        <p>{{ member|board_title_filter }}</p>
-                        <p class="card-text">{{ member.medallion }}</p>
-                    </div>
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 mx-auto">
+                <p class="lead">
+                    V případě potřeby se na nás neváhejte obrátit a to i v případě pokud byste rádi přišli,
+                    ale nechce se vám samotným.
+                    Rádi se s vámi některý z členů sejde před událostí a uvede vás.
+                </p>
+                <h2>Výbor</h2>
+                <div class="row">
+                    {% for member in board_members %}
+                        <div class="col-md-12 col-lg-6 my-3">
+                            <div class="media rounded-lg p-2" data-toggle="modal" data-target="#vyborModal{{ member.id }}">
+                                <a class="pull-left pr-3">
+                                    <img class="media-object dp rounded-lg shadow"
+                                         src="{% if member.photo %}
+                                         {{ member.photo.url }}
+                                         {% else %}
+                                         {% static 'logo_small.PNG' %}
+                                         {% endif %}
+                                        ">
+                                </a>
+                                <div class="media-body">
+                                    <h5 class="media-heading m-0 mt-1">{{ member.name }}</h5>
+                                    <span>{{ member|board_title_filter }}</span>
+                                    <hr class="rainbow">
+                                    <h6><a href="mailto:{{ member.email }}">{{ member.email|default_if_none:"" }}</a></h6>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
-
-    {% endfor %}
-
-</div>
-
-
-{% endblock %}
-
-
-jazyk prihlasky
-
-Přidat člena
-Jenom členové
-Celoživotní
-Expirované členství
-Karlova Univerzita
-Filozofická fakulta
-Nestudenti
-Nezaplacené
-Končící členové
-Bez přihlášky
-Vyčistit filtry
-Neschvaleni clenove
-
-Upravit
-Prodlouzit clenstvi
-Zaplatit prihlsku
-Schvalit prihlasku
-Zmena na celozivotni
-Smazat
-
-Automaticky smazat clena z db po uplynuti doby ve stanovach po nezaplaceni clenstvi
-automaticky posilat email clenum s infem ze jim vyprsi clenstvi
-automaticky poslat wellcome mail novym clenum po splneni podminek - schvalena a zaplacena prihlaska
-automaticky poslat mail po dvou mesisich od podani prihlasky pri nezaplaceni clenstvi
-kdyz poda prihlasku a nezaplati do 90 dni, zaznam se smaze z clenske db
-poslat automaticky mail tajemnikovi pri vyrazeni/smazani clena z db
-
-pokladnik - pravomoce editovat jenom udaje o zaplaceni a prodlouzeni clenstvi
-
-Log zmen v DB
+        </div>
+    </div>
+</section>

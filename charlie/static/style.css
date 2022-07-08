@@ -1,16 +1,201 @@
-body {
-    font-size: 16px;
+/* Slider */
+.slick-slide {
+  margin: 0px 20px;
 }
 
-h5 {
-    font-size: 16px;
+.customer-logos {
+  overflow: inherit;
+  border: none;
 }
 
-.card-img-top {
-    object-fit: cover;
-    height: 30rem;
+.slick-slide img {
+  width: 100%;
+  min-height: 98px;
+  object-fit: contain;
 }
 
-@media only screen and (max-width: 1143px;) {
+.slick-slide .slide span {
+  min-height: 48px;
+  display: block;
+  margin-top: 0.5rem;
+}
 
+.slick-track::before,
+.slick-track::after {
+  display: table;
+  content: '';
+}
+
+.slick-track::after {
+  clear: both;
+}
+
+.slick-track {
+  padding: 1rem 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+.slick-loading .slick-track {
+  visibility: hidden;
+}
+
+.slick-slide.slick-loading img {
+  display: none;
+}
+
+.slick-slide.dragging img {
+  pointer-events: none;
+}
+
+.slick-loading .slick-slide {
+  visibility: hidden;
+}
+
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  background: url(https://raw.githubusercontent.com/solodev/infinite-logo-carousel/master/images/arrow.svg?sanitize=true) center no-repeat;
+  color: #fff;
+  filter: invert(77%) sepia(32%) saturate(1%) hue-rotate(344deg) brightness(105%) contrast(103%);
+  border: none;
+  width: 2rem;
+  height: 1.5rem;
+  text-indent: -10000px;
+  margin-top: -16px;
+  z-index: 99;
+}
+
+.slick-arrow.slick-next {
+  right: -40px;
+  transform: rotate(180deg);
+}
+
+.slick-arrow.slick-prev {
+  left: -40px;
+}
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+  .slick-arrow {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+  
+.slick-container {
+  overflow: hidden;
+}  
+
+/*!
+ * Start Bootstrap - Scrolling Nav (https://startbootstrap.com/templates/scrolling-nav)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-scrolling-nav/blob/master/LICENSE)
+ */
+
+header {
+  padding: 106px 0 50px;
+}
+
+#charlie-header {
+  background-color: white;
+  background-image: url("../img/Charlie.PNG");
+  background-position: center 25%;
+  background-size: 25em;
+  background-repeat: no-repeat;
+  color: black;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: Montserrat;
+}
+#charlie-header .lead {
+  color: black;
+}
+nav {
+  font-family: Raleway;
+}
+section {
+  padding: 100px 0;
+  font-family: Raleway;
+}
+footer {
+  font-family: Montserrat;
+}
+.lead {
+  font-family: Raleway;
+}
+.modal-header {
+  border: none;
+}
+section#about {
+  padding: 50px 0;
+}
+
+.event.card img {
+  width: 100%;
+}
+
+.media .dp {
+  object-fit: cover;
+  object-position: 0 10%;
+  width: 100px;
+  height: 100px;
+}
+
+.media:hover, .shadow-hover:hover {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important;
+  cursor: pointer;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.media h5 small {
+  vertical-align: top;
+}
+
+.img-cover {
+  object-fit: cover;
+  object-position: 0 10%;
+  width: 250px;
+  height: 250px;
+}
+
+.media {
+  word-wrap: normal;
+}
+
+hr.rainbow {
+  border: none;
+  height: 2px;
+  margin: 8px auto;
+  background: -webkit-linear-gradient(45deg, #ff0800 0%, #ff9b0b 20%, #fffb0b 40%, #05dc00 60%, #034eff 80%, #dd00ff 100%);
+  background: -moz-linear-gradient(45deg, #ff0800 0%, #ff9b0b 20%, #fffb0b 40%, #05dc00 60%, #034eff 80%, #dd00ff 100%);
+  background: -o-linear-gradient(45deg, #ff0800 0%, #ff9b0b 20%, #fffb0b 40%, #05dc00 60%, #034eff 80%, #dd00ff 100%);
+  background: -ms-linear-gradient(45deg, #ff0800 0%, #ff9b0b 20%, #fffb0b 40%, #05dc00 60%, #034eff 80%, #dd00ff 100%);
+  background: linear-gradient(45deg, #ff0800 0%, #ff9b0b 20%, #fffb0b 40%, #05dc00 60%, #034eff 80%, #dd00ff 100%);
+}
+.btn-more i.fa {
+  margin: 0;
+  margin-top: 5px;
+}
+
+.btn-more small {
+  display: block;
+  margin-bottom: -18px;
+  margin-top: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-align: center;
+}
+
+a i.fa{
+  text-decoration: none !important;
+}
+.slick-container a {
+ text-decoration: none;
+ color: black;
 }

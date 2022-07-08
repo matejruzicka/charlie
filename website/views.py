@@ -6,16 +6,21 @@ from website.utils import FileTypes
 
 
 def home(request):
-    return render(request, "home.html")
+    board_members = BoardMember.objects.all()
+    files = File.objects.filter(slug__in=["prihlaska", "stanovy"])
+    return render(request, "home.html", {"board_members": board_members, "files": files})
 
 
 def about(request):
     return render(request, "about.html")
 
 
-def downloads(request):
-    files = File.objects.all()
-    return render(request, "downloads.html", {"files": files})
+def magazine(request):
+    file = get_object_or_404(File, slug="magazine")
+    response = HttpResponse(file.file)
+    response["Content-Type"] = FileTypes[file.file_type].value
+    response["Content-Disposition"] = f"inline; filename={file.name}.{file.file_type}"
+    return response
 
 
 def download_file(request, slug):
@@ -32,9 +37,4 @@ def view_file(request, slug):
     response["Content-Type"] = FileTypes[file.file_type].value
     response["Content-Disposition"] = f"inline; filename={file.name}.{file.file_type}"
     return response
-
-
-def board(request):
-    board_members = BoardMember.objects.all()
-    return render(request, "board.html", {"board_members": board_members})
 
