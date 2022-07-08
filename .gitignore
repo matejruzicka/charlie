@@ -1,6 +1,5 @@
 .DS_Store
 .idea/
 db.sqlite3
-charlie/static/board_members/*
 charlie/static/files/*
 website/migrations/*
