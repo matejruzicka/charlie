@@ -15,7 +15,7 @@
             <div class="modal-body">
                 <div class="text-center">
                     <img class="img-cover rounded-lg shadow" src="{% if member.photo %}
-                                         {{ member.photo.url }}
+                                         {{ member.photo.url|static }}
                                          {% else %}
                                          {% static 'logo_small.PNG' %}
                                          {% endif %}
@@ -56,7 +56,7 @@
                                 <a class="pull-left pr-3">
                                     <img class="media-object dp rounded-lg shadow"
                                          src="{% if member.photo %}
-                                         {{ member.photo.url }}
+                                         {{ member.photo.url|static }}
                                          {% else %}
                                          {% static 'logo_small.PNG' %}
                                          {% endif %}

@@ -1,5 +1,10 @@
 .DS_Store
 .idea/
 db.sqlite3
-charlie/static/files/*
 website/migrations/*
+website/management/__pycache__
+website/management/commands/__pycache__
+website/templatetags/__pycache__
+website/__pycache__
+charlie/__pycache__
+charlie/static/admin

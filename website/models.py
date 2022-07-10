@@ -25,7 +25,7 @@ class BoardMember(models.Model):
     title = models.CharField(max_length=225, choices=TITLE_CHOICES, blank=False, null=False, verbose_name="Pozice")
     pronouns = models.CharField(max_length=225, choices=PRONOUNS, blank=False, null=False, verbose_name="Oslovení")
     medallion = models.TextField(blank=True, null=True, verbose_name="Medailon")
-    photo = models.ImageField(blank=True, null=True, upload_to="charlie/static/board_members", verbose_name="Fotka")
+    photo = models.ImageField(blank=True, null=True, upload_to="charlie/static", verbose_name="Fotka")
     email = models.EmailField(blank=True, null=True, verbose_name="Email")
     email2 = models.EmailField(blank=True, null=True, verbose_name="Druhý email")
 
@@ -49,8 +49,9 @@ class File(models.Model):
     description = models.TextField(blank=True, null=True, verbose_name="Popis")
     slug = models.CharField(max_length=255, default=str(uuid.uuid4()), unique=True)
     file_type = models.CharField(max_length=225, choices=FILE_TYPES, blank=False, null=False, verbose_name="Typ souboru")
-    file = models.FileField(blank=False, null=False, upload_to="charlie/static/files", verbose_name="Soubor")
+    file = models.FileField(blank=False, null=False, upload_to="charlie/static", verbose_name="Soubor")
 
     def __str__(self):
         return self.name
+#
 

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-at23lv2l7dy54&wj8uddy_gof3yy&0r&h+sch&upbg1jbx=8n2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["127.0.0.1", "89.203.249.181", "spolekcharlie.cz"]
 
 
 # Application definition
@@ -77,8 +77,13 @@ WSGI_APPLICATION = 'charlie.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'charlie',
+        'USER': 'charlie',
+        'PASSWORD': 'spolekcharlie',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        'TIME_ZONE': 'Europe/Prague',
     }
 }
 
@@ -117,14 +122,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'charlie/static/'
+STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "charlie/static/"),
-    os.path.join(BASE_DIR, "charlie/static/board_members/"),
-    os.path.join(BASE_DIR, "charlie/static/events/"),
-    os.path.join(BASE_DIR, "charlie/static/partners/"),
+    #os.path.join(BASE_DIR, "charlie/static/"),
+#    os.path.join(BASE_DIR, "charlie/static/board_members/"),
+#    os.path.join(BASE_DIR, "charlie/static/events/"),
+#    os.path.join(BASE_DIR, "charlie/static/partners/"),
 ]
+
+STATIC_ROOT = "/home/charlie/charlie/charlie/static"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
