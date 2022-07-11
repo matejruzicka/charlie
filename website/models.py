@@ -25,6 +25,7 @@ class BoardMember(models.Model):
     title = models.CharField(max_length=225, choices=TITLE_CHOICES, blank=False, null=False, verbose_name="Pozice")
     pronouns = models.CharField(max_length=225, choices=PRONOUNS, blank=False, null=False, verbose_name="Oslovení")
     medallion = models.TextField(blank=True, null=True, verbose_name="Medailon")
+    medallion_en = models.TextField(blank=True, null=True, verbose_name="Medailon anglicky")
     photo = models.ImageField(blank=True, null=True, upload_to="charlie/static", verbose_name="Fotka")
     email = models.EmailField(blank=True, null=True, verbose_name="Email")
     email2 = models.EmailField(blank=True, null=True, verbose_name="Druhý email")
