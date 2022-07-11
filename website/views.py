@@ -2,11 +2,11 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 
 from website.models import BoardMember, File
-from website.utils import FileTypes
+from website.utils import FileTypes, sort_members
 
 
 def home(request):
-    board_members = BoardMember.objects.all()
+    board_members = sort_members()
     files = File.objects.filter(slug__in=["prihlaska", "stanovy"])
     return render(request, "home.html", {"board_members": board_members, "files": files})
 
