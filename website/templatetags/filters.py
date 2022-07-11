@@ -24,11 +24,6 @@ def board_title_filter(member):
             return "Členka revizní komise"
 
 
-@register.filter(name='mobile_filter')
-def mobile_filter(ahoj):
-    return "pl-5"
-
-
 @register.filter(name="static")
 def static(path):
     return path.split("/charlie/")[1]
