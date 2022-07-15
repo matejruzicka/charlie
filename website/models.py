@@ -53,5 +53,13 @@ class File(models.Model):
 
     def __str__(self):
         return self.name
-#
+
+
+class Photo(models.Model):
+    id = models.AutoField(primary_key=True)
+    description = models.CharField(max_length=225, blank=True, null=True, verbose_name="Popisek")
+    photo = models.ImageField(blank=True, null=True, upload_to="charlie/static", verbose_name="Fotka")
+
+    def __str__(self):
+        return self.description
 

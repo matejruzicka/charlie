@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block mycontent %}
+{% load filters %}
+{% load static %}
+
+    <section id="gallery">
+        <div class="container slick-container">
+            <div class="row">
+                <div class="col-lg-9 mx-auto">
+                    <h2>Fotogalerie</h2>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                            {% with photos1=photos|photos:1 %}
+                                {% for photo in photos1 %}
+                                    <img
+                                        src="{{ photo.photo.url|static }}"
+                                        class="w-100 shadow-1-strong rounded mb-4"
+                                        alt="{{ photo.description }}"
+                                    />
+                                {% endfor %}
+                            {% endwith %}
+                        </div>
+                        <div class="col-lg-4 mb-4 mb-lg-0">
+                            {% with photos2=photos|photos:2 %}
+                                {% for photo in photos2 %}
+                                    <img
+                                        src="{{ photo.photo.url|static }}"
+                                        class="w-100 shadow-1-strong rounded mb-4"
+                                        alt="{{ photo.description }}"
+                                    />
+                                {% endfor %}
+                            {% endwith %}
+                        </div>
+                        <div class="col-lg-4 mb-4 mb-lg-0">
+                            {% with photos3=photos|photos:3 %}
+                                {% for photo in photos3 %}
+                                    <img
+                                        src="{{ photo.photo.url|static }}"
+                                        class="w-100 shadow-1-strong rounded mb-4"
+                                        alt="{{ photo.description }}"
+                                    />
+                                {% endfor %}
+                            {% endwith %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
