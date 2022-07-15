@@ -28,7 +28,7 @@ def board_title_filter(member):
 
 @register.filter(name="static")
 def static(path):
-    return path.split("/charlie/")[1]
+    return "/static/" + path.split("/")[-1]
 
 
 @register.filter(name="photos")
