@@ -1,5 +1,9 @@
 import uuid
 
+from io import BytesIO
+import sys
+from PIL import Image, ImageOps
+from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.db import models
 
 from website.templatetags.filters import board_title_filter
@@ -53,5 +57,23 @@ class File(models.Model):
 
     def __str__(self):
         return self.name
-#
+
+
+class Photo(models.Model):
+    id = models.AutoField(primary_key=True)
+    description = models.CharField(max_length=225, blank=True, null=True, verbose_name="Popisek")
+    photo = models.ImageField(blank=True, null=True, upload_to="charlie/static", verbose_name="Fotka")
+
+    def __str__(self):
+        return self.description
+
+    def save(self):
+        im = Image.open(self.photo)
+        im = ImageOps.exif_transpose(im)
+        output = BytesIO()
+        im.save(output, format='JPEG', optimize=True, quality=30)
+        output.seek(0)
+        self.photo = InMemoryUploadedFile(output, 'ImageField', "%s.jpg" % self.photo.name.split('.')[0], 'image/jpeg',
+                                          sys.getsizeof(output), None)
+        super(Photo, self).save()
 

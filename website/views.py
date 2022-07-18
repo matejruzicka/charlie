@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 
-from website.models import BoardMember, File
+from website.models import BoardMember, File, Photo
 from website.utils import FileTypes, sort_members
 
 
@@ -13,6 +13,11 @@ def home(request):
 
 def about(request):
     return render(request, "about.html")
+
+
+def gallery(request):
+    photos = Photo.objects.all()
+    return render(request, "gallery.html", {"photos": photos})
 
 
 def magazine(request):

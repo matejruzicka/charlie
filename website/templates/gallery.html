@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block mycontent %}
+{% load filters %}
+{% load static %}
+
+    {% for photo in photos %}
+    <div class="modal fade" id="Modal_{{ photo.id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width:600px;">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{ photo.description }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="{{ photo.photo.url|static }}" alt="{{ photo.description }}" style="width: 566px;"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <section id="gallery">
+        <div class="container slick-container">
+            <div class="row">
+                <div class="col-lg-9 mx-auto">
+                    <h2>Fotogalerie</h2>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+                            {% with photos1=photos|photos:1 %}
+                                {% for photo in photos1 %}
+                                    <button data-toggle="modal" data-target="#Modal_{{ photo.id }}"
+                                    style="background-color:transparent;padding:0;border:none;">
+                                        <img
+                                            src="{{ photo.photo.url|static }}"
+                                            class="w-100 shadow-1-strong rounded mb-4"
+                                            alt="{{ photo.description }}"
+                                        />
+                                    </button>
+                                {% endfor %}
+                            {% endwith %}
+                        </div>
+                        <div class="col-lg-4 mb-4 mb-lg-0">
+                            {% with photos2=photos|photos:2 %}
+                                {% for photo in photos2 %}
+                                    <button data-toggle="modal" data-target="#Modal_{{ photo.id }}"
+                                    style="background-color:transparent;padding:0;border:none;">
+                                        <img
+                                            src="{{ photo.photo.url|static }}"
+                                            class="w-100 shadow-1-strong rounded mb-4"
+                                            alt="{{ photo.description }}"
+                                        />
+                                    </button>
+                                {% endfor %}
+                            {% endwith %}
+                        </div>
+                        <div class="col-lg-4 mb-4 mb-lg-0">
+                            {% with photos3=photos|photos:3 %}
+                                {% for photo in photos3 %}
+                                    <button data-toggle="modal" data-target="#Modal_{{ photo.id }}"
+                                    style="background-color:transparent;padding:0;border:none;">
+                                        <img
+                                            src="{{ photo.photo.url|static }}"
+                                            class="w-100 shadow-1-strong rounded mb-4"
+                                            alt="{{ photo.description }}"
+                                        />
+                                    </button>
+                                {% endfor %}
+                            {% endwith %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
