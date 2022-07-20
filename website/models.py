@@ -77,3 +77,48 @@ class Photo(models.Model):
                                           sys.getsizeof(output), None)
         super(Photo, self).save()
 
+
+class University(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=225, blank=True, null=True, verbose_name="Název")
+
+    def __str__(self):
+        return self.name
+
+
+class Faculty(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=225, blank=True, null=True, verbose_name="Název")
+
+    def __str__(self):
+        return self.name
+
+
+class Member(models.Model):
+    MEMBERSHIP_TYPE = [
+        ("Roční", "Roční"),
+        ("Doživotní", "Doživotní"),
+        ("Ukončené", "Ukončené"),
+    ]
+
+    id = models.AutoField(primary_key=True)
+    first_name = models.CharField(max_length=225, verbose_name="Jméno")
+    last_name = models.CharField(max_length=225, verbose_name="Příjmení")
+    email = models.EmailField(blank=True, null=True, verbose_name="Email")
+    phone = models.CharField(max_length=225, blank=True, null=True, verbose_name="Telefon")
+    university = models.ManyToManyField(University, blank=True, verbose_name="Univerzita")
+    faculty = models.ManyToManyField(Faculty, blank=True, verbose_name="Fakulta")
+    photos_allowed = models.BooleanField(verbose_name="Souhlas s focením")
+    membership_type = models.CharField(max_length=225, choices=MEMBERSHIP_TYPE, verbose_name="Typ členství")
+    paid_membership = models.BooleanField(verbose_name="Poplatek zaplacen")
+    member_since = models.DateField(blank=True, null=True, verbose_name="Členem od")
+    member_until = models.DateField(blank=True, null=True, verbose_name="Členem do")
+    membership_last_prolonged = models.DateField(blank=True, null=True,
+                                                 verbose_name="Členství naposledy prodlouženo dne")
+    lifetime_since = models.DateField(blank=True, null=True, verbose_name="Doživotní členství od")
+    approved = models.BooleanField(verbose_name="Schváleno")
+    found_application = models.BooleanField(verbose_name="Papírová přihláška existuje")
+    ending_membership = models.BooleanField(verbose_name="Končící členství")
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
