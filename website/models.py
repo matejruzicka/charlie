@@ -51,6 +51,7 @@ class File(models.Model):
 
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=225, blank=False, null=False, verbose_name="Název")
+    name_en = models.CharField(max_length=225, blank=False, null=False, verbose_name="Název anglicky")
     description = models.TextField(blank=True, null=True, verbose_name="Popis")
     slug = models.CharField(max_length=255, default=str(uuid.uuid4()), unique=True)
     file_type = models.CharField(max_length=225, choices=FILE_TYPES, blank=False, null=False, verbose_name="Typ souboru")
@@ -77,4 +78,3 @@ class Photo(models.Model):
         self.photo = InMemoryUploadedFile(output, 'ImageField', "%s.jpg" % self.photo.name.split('.')[0], 'image/jpeg',
                                           sys.getsizeof(output), None)
         super(Photo, self).save()
-
