@@ -45,9 +45,8 @@
 
                             {% for file in files %}
                                 <a href="{% url 'view_file' file.slug %}" target="_blank"
-                                   class="btn btn-outline-primary mr-1">{{ file.name }}
+                                   class="btn btn-outline-primary mr-1">{{ file.name_en }}
                                 </a>
-                                <!-- TODO: add english filename -->
                             {% endfor %}
 
                         </div>
