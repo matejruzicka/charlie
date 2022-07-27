@@ -15,7 +15,6 @@ def about_en(request):
 
 def gallery_en(request):
     photos = Photo.objects.all()
-    print(photos)
-    return render(request, "gallery_en.html", {"photos": Photo.objects.all()})
+    return render(request, "gallery_en.html", {"photos": photos})
 
 

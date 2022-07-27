@@ -8,3 +8,4 @@ website/templatetags/__pycache__
 website/__pycache__
 charlie/__pycache__
 charlie/static/admin
+charlie/static/*
