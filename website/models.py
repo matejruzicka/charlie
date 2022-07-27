@@ -79,6 +79,9 @@ class Photo(models.Model):
 
 
 class University(models.Model):
+    class Meta:
+        verbose_name_plural = "universities"
+
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=225, blank=True, null=True, verbose_name="Název")
 
@@ -87,6 +90,9 @@ class University(models.Model):
 
 
 class Faculty(models.Model):
+    class Meta:
+        verbose_name_plural = "faculties"
+
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=225, blank=True, null=True, verbose_name="Název")
 
@@ -98,7 +104,7 @@ class Member(models.Model):
     MEMBERSHIP_TYPE = [
         ("Roční", "Roční"),
         ("Doživotní", "Doživotní"),
-        ("Ukončené", "Ukončené"),
+        # ("Ukončené", "Ukončené"),
     ]
 
     id = models.AutoField(primary_key=True)

@@ -1,8 +1,5 @@
-import json
-from datetime import datetime
-
 from django.core.management.base import BaseCommand
-from website.models import Member, University, Faculty
+from website.models import Faculty, University
 
 
 members = [
@@ -80,7 +77,7 @@ members = [
         "email": "chrastny.tom@gmail.com",
         "lifelong_membership": True,
         "university": "",
-        "faculty": "Jin\u00e1",
+        "faculty": "undefined",
         "member_until": "--",
         "photos_allowed": True,
         "phone": "+420 770 142 416",
@@ -505,7 +502,7 @@ members = [
         "email": "benda@ukmedia.cz",
         "lifelong_membership": True,
         "university": "Univerzita Karlova",
-        "faculty": "Jin\u00e1",
+        "faculty": "undefined",
         "member_until": "--",
         "photos_allowed": True,
         "phone": "724541122",
@@ -1304,7 +1301,7 @@ members = [
         "email": "werwomit@gmail.com",
         "lifelong_membership": True,
         "university": "",
-        "faculty": "Jin\u00e1",
+        "faculty": "undefined",
         "member_until": "--",
         "photos_allowed": True,
         "phone": "777630273",
@@ -1712,7 +1709,7 @@ members = [
         "email": "chvojkat@vscht.cz",
         "lifelong_membership": True,
         "university": "",
-        "faculty": "Jin\u00e1",
+        "faculty": "undefined",
         "member_until": "--",
         "photos_allowed": True,
         "phone": "+420 604 325 035",
@@ -2089,6 +2086,7 @@ members = [
         "faculty": "Fakulta humanitn\u00edch studi\u00ed",
         "member_until": "24. 8. 2022",
         "photos_allowed": True,
+        "phone": "----",
         "member_since": "18. 10. 2018",
         "last_prolonged": "24. 8. 2021",
         "lifetime_since": "",
@@ -2204,7 +2202,7 @@ members = [
         "email": "patrik.lacina@gmail.com",
         "lifelong_membership": True,
         "university": "",
-        "faculty": "Jin\u00e1",
+        "faculty": "undefined",
         "member_until": "--",
         "photos_allowed": True,
         "phone": "607214433",
@@ -2272,7 +2270,7 @@ members = [
         "email": "toni.matikainen@helsinki.fi",
         "lifelong_membership": True,
         "university": "Nen\u00ed student",
-        "faculty": "Jin\u00e1",
+        "faculty": "undefined",
         "member_until": "--",
         "photos_allowed": True,
         "phone": "+358440936700",
@@ -2578,7 +2576,7 @@ members = [
         "email": "david.rt@seznam.cz",
         "lifelong_membership": True,
         "university": "Jiho\u010desk\u00e1 univerzita",
-        "faculty": "Jin\u00e1",
+        "faculty": "undefined",
         "member_until": "--",
         "photos_allowed": True,
         "phone": "732572051",
@@ -2629,7 +2627,7 @@ members = [
         "email": "randyz1986@gmail.com",
         "lifelong_membership": True,
         "university": "",
-        "faculty": "Jin\u00e1",
+        "faculty": "undefined",
         "member_until": "--",
         "photos_allowed": True,
         "phone": "736176673",
@@ -2729,36 +2727,25 @@ members = [
 
 
 class Command(BaseCommand):
-    help = 'Creates members in db from json file'
+    help = 'help'
 
     def handle(self, *args, **options):
+        universities = []
+        faculties = []
+
         for member in members:
-            obj = Member.objects.create(first_name=member.get("first_name"), last_name=member.get("last_name"),
-                                        email=member.get("email"), phone=member.get("phone"),
-                                        photos_allowed=member.get("photos_allowed", False),
-                                        paid_membership=member.get("paid_application", False),
-                                        approved=member.get("approved", False),
-                                        found_application=member.get("found_application", False),
-                                        membership_type=("Doživotní" if member.get("lifelong_membership") else "Roční"),
-                                        ending_membership=False,
-                                        )
+            if member.get("university"):
+                universities.append(member.get("university"))
+            if member.get("faculty"):
+                faculties.append(member.get("faculty"))
 
-            if member.get("last_prolonged") and member.get("last_prolonged") != "--":
-                obj.membership_last_prolonged = datetime.strptime(member.get("last_prolonged"), "%d. %m. %Y")
+        universities = list(dict.fromkeys(universities))
+        faculties = list(dict.fromkeys(faculties))
 
-            if member.get("member_since") and member.get("member_since") != "--":
-                obj.member_since = datetime.strptime(member.get("member_since"), "%d. %m. %Y")
+        for uni in universities:
+            obj = University.objects.create(name=uni)
+            obj.save()
 
-            if member.get("member_until") and member.get("member_until") != "--":
-                obj.member_until = datetime.strptime(member.get("member_until"), "%d. %m. %Y")
-
-            if member.get("lifetime_since") and member.get("lifetime_since") != "--":
-                obj.lifetime_since = datetime.strptime(member.get("lifetime_since"), "%d. %m. %Y")
-
-            if University.objects.filter(name=member.get("university")):
-                obj.university.add(University.objects.get(name=member.get("university")))
-
-            if Faculty.objects.filter(name=member.get("faculty")):
-                obj.faculty.add(Faculty.objects.get(name=member.get("faculty")))
-
+        for fac in faculties:
+            obj = Faculty.objects.create(name=fac)
             obj.save()
