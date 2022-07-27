@@ -30,9 +30,9 @@ urlpatterns = [
 ]
 
 urlpatterns_en = [
-    path('en', views_en.home_en, name="home_en"),
+    path('en/', views_en.home_en, name="home_en"),
     path('en/about/', views_en.about_en, name="about_en"),
-    path('en/gallery/', views.gallery, name="gallery_en"),
+    path('en/gallery/', views_en.gallery_en, name="gallery_en"),
 ]
 
 urlpatterns += urlpatterns_en

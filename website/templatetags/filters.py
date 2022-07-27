@@ -33,7 +33,6 @@ def static(path):
 
 @register.filter(name="photos")
 def photos(photos, number):
-    print([photo.description for photo in photos])
     third = int((len(photos)/3))
     if number == 3:
         print([photo.description for photo in list(photos)[:1]])

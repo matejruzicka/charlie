@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from website.models import BoardMember, File
+from website.models import BoardMember, File, Photo
 
 
 def home_en(request):
@@ -11,3 +11,11 @@ def home_en(request):
 
 def about_en(request):
     return render(request, "about_en.html")
+
+
+def gallery_en(request):
+    photos = Photo.objects.all()
+    print(photos)
+    return render(request, "gallery_en.html", {"photos": Photo.objects.all()})
+
+

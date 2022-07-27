@@ -44,3 +44,17 @@ def board_title_filter(member):
 def static(path):
     return path.split("/charlie/")[1]
 
+
+@register.filter(name="photos")
+def photos(photos, number):
+    third = int((len(photos)/3))
+    if number == 3:
+        print([photo.description for photo in list(photos)[:1]])
+        return list(photos)[:third]
+    elif number == 2:
+        print([photo.description for photo in list(photos[1:3])])
+        return list(photos)[third:(third*2)]
+    else:
+        print([photo.description for photo in list(photos[3:])])
+        return list(photos)[(third*2):]
+
