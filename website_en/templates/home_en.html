@@ -1,0 +1,73 @@
+{% extends "base_en.html" %}
+{% block mycontent_en %}
+{% load filters %}
+{% load static %}
+
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 mx-auto">
+                    <p class="lead">
+                        Welcome to the official website of Charlie, queer association of Charles University.
+                        We are a student association with the goal of creating a community space for LGBTQIA+ 
+                        people by organising various public events, both on and off campus grounds.
+                        Come to one of our events and meet us closer.
+                    </p>
+                    <div class="text-center">
+                        <a href="{% url 'about_en' %}" class="btn btn-light btn-sm btn-more px-4 py-0 rounded-lg">
+                            <small class="text-muted">Read more</small>
+                            <i class="fa fa-ellipsis-h fa-3x text-muted"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include 'events_en.html' %}
+    {% include 'board_en.html' %}
+
+    <section id="joinus" class="bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 mx-auto">
+                    <h2>Přidejte se k nám</h2>
+                    <p class="lead">
+                        Our events are open to all, everyone´s welcome amongst us.
+                        You can support us by either purchasing a lifetime membership or a year long membership.
+                        Being a member of Charlie brings you benefits such as discounts in certain establishments 
+                        or the possibility to attend one of our unofficial events.
+                        If you would like to join us, you can fill out an application online or come to any of 
+                        our events.
+                    </p>
+                    <div class="row">
+                        <div class="col-md-auto col-sm-12 my-auto">
+
+                            {% for file in files %}
+                                <a href="{% url 'view_file' file.slug %}" target="_blank"
+                                   class="btn btn-outline-primary mr-1">{{ file.name_en }}
+                                </a>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                    <p class="lead mt-4">
+                        For online processing of you application, contact us at 
+                        <a href="mailto:tajemnik@spolekcharlie.cz">tajemnik@spolekcharlie.cz</a>.
+                    </p>
+                    <p class="lead mt-4">
+                        You can pay the membership fee via Charlie´s transparent account.
+                        This will allow us to continue doing our work. Thank you in advance for your contribution.
+                    </p>
+                    <div class="d-flex flex-row justify-content-center align-items-center">
+                        <i class="fa fa-3x fa-credit-card"></i>
+                        <span class="lead ml-3">2000162762/2010</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include 'partners_en.html' %}
+
+{% endblock %}

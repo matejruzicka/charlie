@@ -9,8 +9,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         # BoardMember.objects.all().delete()
         # File.objects.all().delete()
-        
-
 
         kuba_text = "Starám se povětšinou o organizační stránku událostí a výslovně i Night Out každý třetí čtvrtek" \
                     " v měsíci. <br>Kromě toho funguji díky svým vlasům a výšce i jako orientační bod, pokud nás " \

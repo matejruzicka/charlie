@@ -7,7 +7,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Seznámte se s výborem Charlie</h5>
+                <h5 class="modal-title">Meet the Charlie board members</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -21,15 +21,17 @@
                         {% static 'logo_small.PNG' %}
                     {% endif %}">
                     <h2 class="mt-2">{{ member.name }}</h2>
-                    <span class='badge badge-secondary ml-2'>{{ member|board_title_filter }}</span>
+                    <span class='badge badge-secondary ml-2'>{{ member|board_title_filter_en }}</span>
                 </div>
                 <hr class="rainbow">
                 <p class="lead" style="font-size: 1.1rem;">
-                    {{ member.medallion|safe }}
+                    {% with medallion=member.medallion_en|safe %}
+                        {{ medallion|default_if_none:"" }}
+                    {% endwith %}
                 </p>
                 <hr class="rainbow">
                 <p class="lead">
-                    <small>Kontakt:</small><br/>
+                    <small>Contact:</small><br/>
                     <h5 class='ml-2'><a href='mailto:{{ member.email }}'>{{ member.email|default_if_none:"" }}</a></h5>
                     <h5 class='ml-2'><a href='mailto:{{ member.email2 }}'>{{ member.email2|default_if_none:"" }}</a></h5>
                 </p>
@@ -44,9 +46,9 @@
         <div class="row">
             <div class="col-lg-9 mx-auto">
                 <p class="lead">
-                    V případě potřeby se na nás neváhejte obrátit a to i v případě pokud byste rádi přišli,
-                    ale nechce se vám samotným.
-                    Rádi se s vámi některý z členů sejde před událostí a uvede vás.
+                    Do not hesitate to contact us, even in case you would like to come to one of our events and do not feel 
+                    comfortable coming alone. One of our board members will gladly meet you in advance and introduce you to 
+                    everyone.
                 </p>
                 <h2>Výbor</h2>
                 <div class="row">
@@ -64,7 +66,7 @@
                                 </a>
                                 <div class="media-body">
                                     <h5 class="media-heading m-0 mt-1">{{ member.name }}</h5>
-                                    <span>{{ member|board_title_filter }}</span>
+                                    <span>{{ member|board_title_filter_en }}</span>
                                     <hr class="rainbow">
                                     <h6><a href="mailto:{{ member.email }}">{{ member.email|default_if_none:"" }}</a></h6>
                                 </div>

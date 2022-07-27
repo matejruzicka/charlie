@@ -29,6 +29,7 @@ class BoardMember(models.Model):
     title = models.CharField(max_length=225, choices=TITLE_CHOICES, blank=False, null=False, verbose_name="Pozice")
     pronouns = models.CharField(max_length=225, choices=PRONOUNS, blank=False, null=False, verbose_name="Oslovení")
     medallion = models.TextField(blank=True, null=True, verbose_name="Medailon")
+    medallion_en = models.TextField(blank=True, null=True, verbose_name="Medailon anglicky")
     photo = models.ImageField(blank=True, null=True, upload_to="charlie/static", verbose_name="Fotka")
     email = models.EmailField(blank=True, null=True, verbose_name="Email")
     email2 = models.EmailField(blank=True, null=True, verbose_name="Druhý email")
@@ -50,6 +51,7 @@ class File(models.Model):
 
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=225, blank=False, null=False, verbose_name="Název")
+    name_en = models.CharField(max_length=225, blank=False, null=False, verbose_name="Název anglicky")
     description = models.TextField(blank=True, null=True, verbose_name="Popis")
     slug = models.CharField(max_length=255, default=str(uuid.uuid4()), unique=True)
     file_type = models.CharField(max_length=225, choices=FILE_TYPES, blank=False, null=False, verbose_name="Typ souboru")
@@ -76,4 +78,3 @@ class Photo(models.Model):
         self.photo = InMemoryUploadedFile(output, 'ImageField', "%s.jpg" % self.photo.name.split('.')[0], 'image/jpeg',
                                           sys.getsizeof(output), None)
         super(Photo, self).save()
-
