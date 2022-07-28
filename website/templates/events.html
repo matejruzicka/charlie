@@ -1,30 +1,180 @@
 {% load static %}
 
-<section id="" class="py-4 pt-5 bg-light">
+<div class="modal fade" id="tuesday" tabindex="-1" role="dialog" aria-labelledby="tuesdayLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tuesdayLabel">Úterní setkání</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="card-text">
+                    Nulla non arcu lacinia neque faucibus fringilla. Duis pulvinar. Nulla quis diam. Vivamus ac leo
+                    pretium faucibus. Aliquam ornare wisi eu metus. Aliquam erat volutpat. In sem justo, commodo ut,
+                    suscipit at, pharetra vitae, orci. Nulla pulvinar eleifend sem. Praesent id justo in neque
+                    elementum ultrices. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem.
+                </p>
+                <div style="margin-top:2rem;">
+                    <img class="card-img-top" src="{% static 'tuesday.jpg' %}" alt="Card image cap">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřít</button>
+<!--                <button type="button" class="btn btn-primary">Save changes</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="nightOut" tabindex="-1" role="dialog" aria-labelledby="NightOutLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="NightOutLabel">Night Out</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="card-text">
+                    Nulla non arcu lacinia neque faucibus fringilla. Duis pulvinar. Nulla quis diam. Vivamus ac leo
+                    pretium faucibus. Aliquam ornare wisi eu metus. Aliquam erat volutpat. In sem justo, commodo ut,
+                    suscipit at, pharetra vitae, orci. Nulla pulvinar eleifend sem. Praesent id justo in neque
+                    elementum ultrices. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem.
+                </p>
+<!--                <div style="margin-top:2rem;">-->
+<!--                    <img class="card-img-top" src="{% static 'tuesday.jpg' %}" alt="Card image cap">-->
+<!--                </div>-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřít</button>
+<!--                <button type="button" class="btn btn-primary">Save changes</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="film" tabindex="-1" role="dialog" aria-labelledby="filmLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="filmLabel">Filmový klub</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="card-text">
+                    Nulla non arcu lacinia neque faucibus fringilla. Duis pulvinar. Nulla quis diam. Vivamus ac leo
+                    pretium faucibus. Aliquam ornare wisi eu metus. Aliquam erat volutpat. In sem justo, commodo ut,
+                    suscipit at, pharetra vitae, orci. Nulla pulvinar eleifend sem. Praesent id justo in neque
+                    elementum ultrices. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem.
+                </p>
+<!--                <div style="margin-top:2rem;">-->
+<!--                    <img class="card-img-top" src="{% static 'tuesday.jpg' %}" alt="Card image cap">-->
+<!--                </div>-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřít</button>
+<!--                <button type="button" class="btn btn-primary">Save changes</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="trip" tabindex="-1" role="dialog" aria-labelledby="tripLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tripLabel">Výlety</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="card-text">
+                    Nulla non arcu lacinia neque faucibus fringilla. Duis pulvinar. Nulla quis diam. Vivamus ac leo
+                    pretium faucibus. Aliquam ornare wisi eu metus. Aliquam erat volutpat. In sem justo, commodo ut,
+                    suscipit at, pharetra vitae, orci. Nulla pulvinar eleifend sem. Praesent id justo in neque
+                    elementum ultrices. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem.
+                </p>
+                <div style="margin-top:2rem;">
+                    <img class="card-img-top" src="{% static 'trip.jpg' %}" alt="Card image cap">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřít</button>
+<!--                <button type="button" class="btn btn-primary">Save changes</button>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="events" class="py-4 pt-5 bg-light">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 mx-auto">
                 <h2>Naše akce</h2>
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="event card my-3 shadow shadow-hover pointer">
+                        <div class="event card my-3 shadow shadow-hover pointer" data-toggle="modal"
+                             data-target="#tuesday">
                             <div class="card-body lead text-center">Úterní setkání</div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="event card my-3 shadow shadow-hover">
-                            <div class="card-body lead text-center">
+                            <div class="card-body lead text-center" data-toggle="modal"
+                             data-target="#nightOut">
                                 <img src="{% static 'night_out.JPG' %}"/>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="event card my-3 shadow shadow-hover">
+                        <div class="event card my-3 shadow shadow-hover" data-toggle="modal"
+                             data-target="#film">
                             <div class="card-body lead text-center">
                                 Filmový klub
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="event card my-3 shadow shadow-hover" data-toggle="modal"
+                             data-target="#trip">
+                            <div class="card-body lead text-center">
+                                Výlety
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 mx-auto" style="margin-top:2rem;">
+                <h2>Nadcházející události</h2>
+                <div class="row">
+                    {% if events %}
+                        {% for event in events %}
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="font-weight:700;">{{ event.name }}</h5>
+                                        <h6 class="card-subtitle mb-2 text-muted" style="margin-top:1rem;">
+                                            {{ event.date|date:'d.m.Y, H:i' }}</h6>
+                                        <p class="card-text" style="margin-top:2rem;">{{ event.description }}</p>
+                                        <a href="{{ event.link }}" class="btn btn-primary" target="_blank">
+                                            Facebooková událost</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="col-sm-6">
+                            <p>Nejsou naplánovány žádné události</p>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
