@@ -7,11 +7,8 @@ class Command(BaseCommand):
     help = "This command does this and that"
 
     def handle(self, *args, **options):
-        # BoardMember.objects.all().delete()
-        # File.objects.all().delete()
+        BoardMember.objects.all().delete()
         
-
-
         kuba_text = "Starám se povětšinou o organizační stránku událostí a výslovně i Night Out každý třetí čtvrtek" \
                     " v měsíci. <br>Kromě toho funguji díky svým vlasům a výšce i jako orientační bod, pokud nás " \
                     "někdo nemůže najít :)"
@@ -63,15 +60,3 @@ class Command(BaseCommand):
         michal = BoardMember(name="Michal Mikeska", title="Řadový člen", pronouns="Mužské", medallion=michal_text,
                              photo="charlie/static/sm_Michal.jpeg")
         michal.save()
-
-        prihlaska = File(name="Přihláška", slug="prihlaska", file_type="pdf",
-                       file="charlie/static/prihlaska.pdf")
-        prihlaska.save()
-
-        stanovy = File(name="Stanovy", slug="stanovy", file_type="pdf",
-                       file="charlie/static/stanovy.pdf")
-        stanovy.save()
-
-        casopis = File(name="Časopis", slug="magazine", file_type="pdf",
-                       file="charlie/static/Charlie_magazin_jaro_2022.pdf")
-        casopis.save()
