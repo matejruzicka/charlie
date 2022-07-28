@@ -6,6 +6,11 @@ website/management/__pycache__
 website/management/commands/__pycache__
 website/templatetags/__pycache__
 website/__pycache__
+website_en/management/__pycache__
+website_en/management/commands/__pycache__
+website_en/templatetags/__pycache__
+website_en/__pycache__
 charlie/__pycache__
 charlie/static/admin
 charlie/static/*
+venv/
