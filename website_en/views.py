@@ -19,3 +19,7 @@ def gallery_en(request):
     return render(request, "gallery_en.html", {"photos": photos})
 
 
+def upcoming_events_en(request):
+    return render(request, "upcoming_events_en.html")
+
+

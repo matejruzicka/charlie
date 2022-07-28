@@ -1,27 +1,163 @@
 {% load static %}
 
-<section id="" class="py-4 pt-5 bg-light">
+<div class="modal fade" id="tuesday" tabindex="-1" role="dialog" aria-labelledby="tuesdayLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tuesdayLabel">Tuesday meetings</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="card-text">
+                    Every Tuesday you can come to our regular meeting, which takes place in one of Prague's queer 
+                    friendly bars, cafes or restaurants. The idea of Tuesday meetings is to get to know each other, 
+                    make new friends and relax after a long day. This is our basic and oldest event. Occasionally, 
+                    a classic meeting is replaced by, for example, a board games, a picnic or a workshop.
+                </p>
+                <div style="margin-top:2rem;">
+                    <img class="card-img-top" src="{% static 'utery2.jpg' %}" alt="Card image cap">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřít</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="nightOut" tabindex="-1" role="dialog" aria-labelledby="NightOutLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="NightOutLabel">Night Out</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="card-text">
+                    Are you new in Prague? Do you want to get to know other LGBTQIA+ students or expats and find new
+                    friends? Come join us for a Night Out! <br>
+                    This event is intended for foreign students currently studying in Prague or anyone who wants to
+                    practice their English skills and meet new friends. 🌈 <br>
+                    Anyone is welcome! <br>
+                    We are looking forward to seeing you. <br>
+                    If you have any questions, don't know where the venue is or are too shy to come alone and want us
+                    to pick you up somewhere, feel free to write us a private message 🌈❤️
+                </p>
+<!--                <div style="margin-top:2rem;">-->
+<!--                    <img class="card-img-top" src="{% static 'nightout.jpg' %}" alt="Card image cap">-->
+<!--                </div>-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřít</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="games" tabindex="-1" role="dialog" aria-labelledby="gamesLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="gamesLabel">Board games</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="card-text">
+                    Do you like to play board games? Come and play with us! Once a month we organize a board game night. 
+                    We play all types of games, card games, observation games, as well as logical and strategic games
+                    that will engage your brain cells. We bring our own games. If you own a fun board game yourself
+                    that you'd like to play with us, we'd love to have you bring it.
+                </p>
+<!--                <div style="margin-top:2rem;">-->
+<!--                    <img class="card-img-top" src="{% static 'movie.jpg' %}" alt="Card image cap">-->
+<!--                </div>-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřít</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+FILM
+Do you like watching movies? If so, our club offers you plenty of blockbusters and cult classics of all kinds,
+from comedies, romantic slushy movies, bittersweet dramas to bitter documentaries. All of the films screened have a
+queer theme in common. As you watch them, you'll relive coming out, first loves, separation, fear, or inclusion in
+the LGBTQ+ community with the main characters. The screening itself is often followed by a discussion where you can
+share your feelings with other viewers. -->
+
+<div class="modal fade" id="trip" tabindex="-1" role="dialog" aria-labelledby="tripLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="tripLabel">Trips</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="card-text">
+                    If you're tired of sitting at bars and cafes, or you’d just like to walk and discover new places, 
+                    join us on a trip. We set out on both shorter routes around the city and full-day trips to the more 
+                    distant surroundings of Prague. Trips usually take place every three weeks, alternating Saturday and 
+                    Sunday, but you need to look at our Facebook page to see when and where we will meet.
+                </p>
+                <div style="margin-top:2rem;">
+                    <img class="card-img-top" src="{% static 'trip.jpg' %}" alt="Card image cap">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřít</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="events" class="py-4 pt-5 bg-light">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 mx-auto">
-                <h2>Naše akce</h2>
+                <h2>
+                    Our events
+                    <a href="{% url 'upcoming_events_en' %}" class="btn btn-outline-primary ml-5">
+                        Upcoming events
+                    </a>
+                </h2>
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="event card my-3 shadow shadow-hover pointer">
-                            <div class="card-body lead text-center">Tuesday Meeting</div>
+                        <div class="event card my-3 shadow shadow-hover pointer" data-toggle="modal"
+                             data-target="#tuesday">
+                            <div class="card-body lead text-center">Tuesday meeting</div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12">
                         <div class="event card my-3 shadow shadow-hover">
-                            <div class="card-body lead text-center">
+                            <div class="card-body lead text-center" data-toggle="modal"
+                             data-target="#nightOut">
                                 <img src="{% static 'night_out.JPG' %}"/>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="event card my-3 shadow shadow-hover">
+                        <div class="event card my-3 shadow shadow-hover" data-toggle="modal"
+                             data-target="#games">
                             <div class="card-body lead text-center">
-                                Movie Club
+                                Board games
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="event card my-3 shadow shadow-hover" data-toggle="modal"
+                             data-target="#trip">
+                            <div class="card-body lead text-center">
+                                Trips
                             </div>
                         </div>
                     </div>

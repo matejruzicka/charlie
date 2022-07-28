@@ -14,3 +14,4 @@ charlie/__pycache__
 charlie/static/admin
 charlie/static/*
 venv/
+charlie/settings.py
