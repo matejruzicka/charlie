@@ -1,0 +1,27 @@
+{% extends "base_en.html" %}
+{% block mycontent_en %}
+{% load filters %}
+
+<section id="next" class="py-3 bg-dark text-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <h2>Upcoming events</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="row">
+                    <iframe src="https://calendar.google.com/calendar/embed?src=c_7dfc4db500407e34acab70927217ea90f135223d890c0989103d697156887c0d%40group.calendar.google.com&ctz=UTC" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

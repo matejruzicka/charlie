@@ -25,6 +25,7 @@ urlpatterns = [
     path('about/', views.about, name="about"),
     path('gallery/', views.gallery, name="gallery"),
     path('magazine/', views.magazine, name="magazine"),
+    path('upcoming-events/', views.upcoming_events, name="upcoming_events"),
     path('downloads/download/<str:slug>', views.download_file, name="download_file"),
     path('downloads/view/<str:slug>', views.view_file, name="view_file"),
 ]
@@ -32,6 +33,7 @@ urlpatterns = [
 urlpatterns_en = [
     path('en/', views_en.home_en, name="home_en"),
     path('en/about/', views_en.about_en, name="about_en"),
+    path('en/upcoming-events/', views_en.upcoming_events_en, name="upcoming_events_en"),
     path('en/gallery/', views_en.gallery_en, name="gallery_en"),
 ]
 
