@@ -7,7 +7,7 @@ from website.utils import FileTypes, sort_members
 
 def home(request):
     board_members = sort_members()
-    files = File.objects.filter(slug__in=["prihlaska", "stanovy"])
+    files = File.objects.filter(slug__in=["prihlaska", "stanovy", "jednaci-rad-vh", "volebni-rad-vh"])
     return render(request, "home.html", {"board_members": board_members, "files": files})
 
 
