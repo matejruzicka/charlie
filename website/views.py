@@ -1,3 +1,6 @@
+import itertools
+
+from PIL import Image
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 
@@ -17,6 +20,18 @@ def about(request):
 
 def gallery(request):
     photos = Photo.objects.all()
+    wide = []
+    high = []
+
+    for image in photos:
+        width, height = image.photo.width, image.photo.height
+        if width > height:
+            wide.append(image)
+        else:
+            high.append(image)
+
+    photos = [x for x in itertools.chain.from_iterable(itertools.zip_longest(wide, high)) if x]
+
     return render(request, "gallery.html", {"photos": photos})
 
 
